@@ -21,6 +21,8 @@ const job = jobCatalog[params.get('job')] || jobCatalog['remote-care-coordinator
 const form = document.querySelector('#application-form');
 const steps = [...document.querySelectorAll('.form-step')];
 const progressItems = [...document.querySelectorAll('.progress-list li')];
+const defaultApiBaseUrl = 'https://charlie-health-backend-production.up.railway.app';
+const apiBaseUrl = (window.CH_APP_API_BASE_URL || defaultApiBaseUrl).replace(/\/$/, '');
 let currentStep = 1;
 
 const formatDate = (dateValue) => {
@@ -114,13 +116,17 @@ form.addEventListener('submit', async (event) => {
   submitButton.querySelector('span').textContent = '...';
 
   try {
-    const response = await fetch('/api/applications', { method: 'POST', body: formData });
+    const requestUrl = apiBaseUrl ? `${apiBaseUrl}/api/applications` : '/api/applications';
+    const response = await fetch(requestUrl, { method: 'POST', body: formData });
     if (!response.ok) throw new Error('Application submission failed');
     window.location.href = `application-submitted.html?job=${encodeURIComponent(params.get('job') || 'remote-care-coordinator')}&id=${encodeURIComponent(id)}`;
   } catch (error) {
     submitButton.disabled = false;
     submitButton.querySelector('span').textContent = '→';
-    window.alert('We could not submit your application. Please try again.');
+    const message = apiBaseUrl
+      ? 'We could not submit your application. Please try again.'
+      : 'The application backend is not available on this static deployment. Deploy the Express app to a Node host and set CH_APP_API_BASE_URL to the live API URL.';
+    window.alert(message);
   }
 });
 
