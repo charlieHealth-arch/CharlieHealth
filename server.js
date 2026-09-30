@@ -6,6 +6,7 @@ const path = require('path');
 
 const app = express();
 const port = Number(process.env.PORT || 4173);
+const hasTelegramConfig = Boolean(process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID);
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 10 * 1024 * 1024 },
@@ -74,10 +75,13 @@ const formatApplication = (body, file) => {
 };
 
 const sendToTelegram = async (body, file) => {
+  if (!hasTelegramConfig) {
+    console.warn('Telegram environment variables are not configured; accepting the application locally without sending it to Telegram.');
+    return;
+  }
+
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
-  if (!token || !chatId) throw new Error('Telegram environment variables are not configured');
-
   const apiBase = `https://api.telegram.org/bot${token}`;
   const messageResponse = await fetch(`${apiBase}/sendMessage`, {
     method: 'POST',
