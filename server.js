@@ -20,11 +20,11 @@ const upload = multer({
 });
 
 const allowedFields = [
-  'applicationId', 'jobDepartment', 'jobTitle', 'jobPay', 'firstName', 'lastName', 'email', 'phone',
+  'applicationId', 'jobId', 'jobDepartment', 'jobTitle', 'jobPay', 'position', 'firstName', 'lastName', 'email', 'phone',
   'city', 'state', 'location', 'employmentType', 'startDate', 'workAuthorization', 'schedule',
   'hourlyRate', 'relevantExperience', 'previousEmployer', 'previousRole', 'employerAddress',
   'employerPhone', 'employerEmail', 'yearsExperience', 'experienceDetails', 'remoteExperience',
-  'education', 'additionalInfo', 'interviewDate', 'interviewTime', 'timeZone', 'schedulingNotes'
+  'education', 'additionalInfo', 'interviewDate', 'interviewTime', 'timeZone', 'schedulingNotes', 'certification'
 ];
 
 const value = (body, key) => String(body[key] || '—').trim();
@@ -43,6 +43,7 @@ const formatApplication = (body, file) => {
     `Location: ${value(body, 'city')}, ${value(body, 'state')}`,
     '',
     'ROLE PREFERENCES',
+    `Position: ${value(body, 'position')}`,
     `Work location: ${value(body, 'location')}`,
     `Employment type: ${value(body, 'employmentType')}`,
     `Start availability: ${value(body, 'startDate')}`,
@@ -69,6 +70,7 @@ const formatApplication = (body, file) => {
     `Time zone: ${value(body, 'timeZone')}`,
     `Scheduling notes: ${value(body, 'schedulingNotes')}`,
     '',
+    `Application certification: ${value(body, 'certification') === 'on' ? 'Confirmed' : 'Not confirmed'}`,
     `Resume: ${file ? file.originalname : 'Not provided'}`
   ];
   return lines.join('\n');
