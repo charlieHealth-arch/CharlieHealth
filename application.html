@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apply to join the Charlie Health team.">
+  <title>Apply | Charlie Health</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="application-page">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Charlie Health careers home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" role="img"><path d="M12 26.5c-2.8-2.1-4.5-5.4-4.5-9.1C7.5 11.2 13 6.5 20 6.5s12.5 4.7 12.5 10.9S27 28.3 20 28.3c-1.7 0-3.3-.3-4.8-.8L10 30l1.4-4.2Z"/><path class="brand-pulse" d="M12.2 18.6h4.2l2-4.1 3.2 8 2.2-4h4.1"/></svg></span><span class="brand-name">Charlie Health</span></a>
+    <a class="back-link" href="index.html#open-roles">← Back to open roles</a>
+  </header>
+
+  <main class="application-shell">
+    <header class="application-heading">
+      <p class="eyebrow"><span class="eyebrow-dot"></span><span id="job-department">Customer Operations</span></p>
+      <h1>Apply for <em id="job-title">Remote Care Coordinator</em></h1>
+      <p class="application-meta" id="job-meta">Remote US · $26.00 - $32.00 / hour ($54k - $66k/yr)</p>
+    </header>
+
+    <div class="application-layout" id="application-content">
+      <aside class="progress-panel" aria-label="Application progress">
+        <p class="progress-label">Application progress</p>
+        <ol class="progress-list">
+          <li class="active" data-step-label="1"><span>1</span>Personal info</li>
+          <li data-step-label="2"><span>2</span>Role preferences</li>
+          <li data-step-label="3"><span>3</span>Experience</li>
+          <li data-step-label="4"><span>4</span>Schedule interview</li>
+          <li data-step-label="5"><span>5</span>Review & submit</li>
+        </ol>
+      </aside>
+
+      <section class="form-panel">
+        <form id="application-form" novalidate>
+          <section class="form-step active" data-step="1">
+            <p class="step-kicker">1. Personal info</p>
+            <h2>Let’s start with you.</h2>
+            <p class="step-intro">Tell us how to reach you about your application.</p>
+            <div class="field-grid two-columns">
+              <label>First name *<input name="firstName" autocomplete="given-name" placeholder="First name" required><small class="error">This field is required.</small></label>
+              <label>Last name *<input name="lastName" autocomplete="family-name" placeholder="Last name" required><small class="error">This field is required.</small></label>
+              <label>Email address *<input type="email" name="email" autocomplete="email" placeholder="name@example.com" required><small class="error">Please enter your email address.</small></label>
+              <label>Phone number *<input type="tel" name="phone" autocomplete="tel" placeholder="(555) 123-4567" required><small class="error">Please enter your phone number.</small></label>
+              <label>City *<input name="city" autocomplete="address-level2" placeholder="City" required><small class="error">This field is required.</small></label>
+              <label>State *<select name="state" autocomplete="address-level1" required><option value="">Select a state</option><option>Alabama</option><option>California</option><option>Colorado</option><option>Florida</option><option>Georgia</option><option>Illinois</option><option>Massachusetts</option><option>New York</option><option>North Carolina</option><option>Ohio</option><option>Oregon</option><option>Pennsylvania</option><option>Texas</option><option>Virginia</option><option>Washington</option><option>Other</option></select><small class="error">This field is required.</small></label>
+            </div>
+            <div class="form-actions"><span></span><button type="button" class="button button-primary next-step">Continue <span>→</span></button></div>
+          </section>
+
+          <section class="form-step" data-step="2">
+            <p class="step-kicker">2. Role preferences</p>
+            <h2>How would you like to work?</h2>
+            <p class="step-intro">Help us understand what makes this role a good fit.</p>
+            <div class="field-grid two-columns">
+              <label>Position applied for *<input name="position" id="position-field" readonly></label>
+              <label>Preferred work location *<select name="location" required><option value="Remote">Remote</option></select></label>
+              <label>Employment type *<select name="employmentType" required><option value="Full-time">Full-time</option></select></label>
+              <label>When can you start? *<select name="startDate" required><option value="">Select an option</option><option>Immediately</option><option>Within 2 weeks</option><option>Within 30 days</option><option>More than 30 days</option></select><small class="error">This field is required.</small></label>
+              <label>Are you authorized to work in the United States? *<select name="workAuthorization" required><option value="">Select an option</option><option>Yes</option><option>No</option></select><small class="error">This field is required.</small></label>
+              <label>Preferred work schedule *<select name="schedule" required><option value="">Select an option</option><option>Morning</option><option>Afternoon</option><option>Evening</option><option>Flexible</option></select><small class="error">This field is required.</small></label>
+              <label>Expected hourly rate<input name="hourlyRate" placeholder="e.g. $28/hour"><span class="field-note" id="salary-note">The posted pay range for this position is $26.00–$32.00 per hour.</span></label>
+            </div>
+            <div class="form-actions"><button type="button" class="button button-ghost previous-step">← Back</button><button type="button" class="button button-primary next-step">Continue <span>→</span></button></div>
+          </section>
+
+          <section class="form-step" data-step="3">
+            <p class="step-kicker">3. Experience</p>
+            <h2>Tell us what you bring.</h2>
+            <p class="step-intro">Your experience helps us understand how you’ll make an impact.</p>
+            <div class="field-grid">
+              <fieldset><legend>Do you have previous care coordination, healthcare, patient support, behavioral health, or customer service experience? *</legend><div class="radio-row"><label><input type="radio" name="relevantExperience" value="Yes" required> Yes</label><label><input type="radio" name="relevantExperience" value="No"> No</label></div><small class="error">Please select an option.</small></fieldset>
+              <div class="field-grid two-columns compact-grid">
+                <label>Previous employer *<input name="previousEmployer" placeholder="Company or organization" required><small class="error">This field is required.</small></label>
+                <label>Previous role<input name="previousRole" placeholder="Job title"></label>
+                <label>Employer address<input name="employerAddress" autocomplete="street-address" placeholder="Street address, city, state"></label>
+                <label>Employer phone <span class="optional">Optional</span><input type="tel" name="employerPhone" autocomplete="tel" placeholder="(555) 123-4567"></label>
+                <label>Employer email <span class="optional">Optional</span><input type="email" name="employerEmail" autocomplete="email" placeholder="name@company.com"></label>
+              </div>
+              <label>Years of relevant experience<select name="yearsExperience"><option value="">Select an option</option><option>Less than 1 year</option><option>1–2 years</option><option>3–5 years</option><option>6–10 years</option><option>More than 10 years</option></select></label>
+              <label>Tell us about your relevant experience<textarea name="experienceDetails" maxlength="1000" placeholder="Describe your relevant experience"></textarea><span class="character-count"><span data-count-for="experienceDetails">0</span>/1000</span></label>
+              <fieldset><legend>Have you worked remotely before? *</legend><div class="radio-row"><label><input type="radio" name="remoteExperience" value="Yes" required> Yes</label><label><input type="radio" name="remoteExperience" value="No"> No</label></div><small class="error">Please select an option.</small></fieldset>
+              <label>Highest level of education<select name="education"><option value="">Select an option</option><option>High school diploma or GED</option><option>Associate degree</option><option>Bachelor’s degree</option><option>Master’s degree</option><option>Doctorate</option></select></label>
+              <label>Upload resume *<input type="file" name="resume" accept=".pdf,.doc,.docx" required><span class="field-note">Accepts .pdf, .doc, and .docx. Maximum file size: 10 MB.</span><small class="error">Please upload your resume.</small></label>
+              <label>Additional information <span class="optional">Optional</span><textarea name="additionalInfo" maxlength="1000" placeholder="Share anything else you’d like us to know"></textarea><span class="character-count"><span data-count-for="additionalInfo">0</span>/1000</span></label>
+            </div>
+            <div class="form-actions"><button type="button" class="button button-ghost previous-step">← Back</button><button type="button" class="button button-primary next-step">Continue <span>→</span></button></div>
+          </section>
+
+          <section class="form-step" data-step="4">
+            <p class="step-kicker">4. Schedule interview</p>
+            <h2>Let’s find a good time.</h2>
+            <p class="step-intro">Choose a preferred time for a brief conversation with our recruiting team.</p>
+            <div class="field-grid two-columns">
+              <label>Preferred interview date *<input type="date" name="interviewDate" required><small class="error">This field is required.</small></label>
+              <label>Preferred time *<select name="interviewTime" required><option value="">Select a time</option><option>9:00 AM</option><option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option><option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option><option>5:00 PM</option></select><small class="error">This field is required.</small></label>
+              <label>Time zone *<select name="timeZone" required><option value="">Select a time zone</option><option>Eastern Time</option><option>Central Time</option><option>Mountain Time</option><option>Pacific Time</option><option>Alaska Time</option><option>Hawaii-Aleutian Time</option></select><small class="error">This field is required.</small></label>
+              <label>Additional scheduling notes<textarea name="schedulingNotes" placeholder="Let us know if there are any scheduling considerations."></textarea></label>
+            </div>
+            <div class="form-actions"><button type="button" class="button button-ghost previous-step">← Back</button><button type="button" class="button button-primary next-step">Review application <span>→</span></button></div>
+          </section>
+
+          <section class="form-step" data-step="5">
+            <p class="step-kicker">Application summary</p>
+            <h2>Review your application.</h2>
+            <p class="step-intro">Make sure everything looks right before submitting.</p>
+            <div class="summary-grid" id="summary-grid"></div>
+            <label class="certification"><input type="checkbox" name="certification" required> I certify that the information provided in this application is accurate and complete. *<small class="error">Please confirm this certification.</small></label>
+            <div class="form-actions"><button type="button" class="button button-ghost previous-step">← Back</button><button type="submit" class="button button-primary">Submit application <span>→</span></button></div>
+          </section>
+        </form>
+      </section>
+    </div>
+
+  </main>
+  <script src="application.js"></script>
+</body>
+</html>
