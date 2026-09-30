@@ -21,7 +21,7 @@ const job = jobCatalog[params.get('job')] || jobCatalog['remote-care-coordinator
 const form = document.querySelector('#application-form');
 const steps = [...document.querySelectorAll('.form-step')];
 const progressItems = [...document.querySelectorAll('.progress-list li')];
-const defaultApiBaseUrl = 'https://charlie-health-backend-production.up.railway.app';
+const defaultApiBaseUrl = window.location.origin || 'http://localhost:4173';
 const apiBaseUrl = (window.CH_APP_API_BASE_URL || defaultApiBaseUrl).replace(/\/$/, '');
 let currentStep = 1;
 
