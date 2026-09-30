@@ -18,6 +18,13 @@ app.use((request, response, next) => {
   return next();
 });
 
+app.options('/api/applications', (request, response) => {
+  response.setHeader('Access-Control-Allow-Origin', '*');
+  response.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  response.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  return response.sendStatus(204);
+});
+
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 10 * 1024 * 1024 },
@@ -116,6 +123,10 @@ const sendToTelegram = async (body, file) => {
 app.use(express.static(__dirname));
 
 app.post('/api/applications', upload.single('resume'), async (request, response) => {
+  response.setHeader('Access-Control-Allow-Origin', '*');
+  response.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  response.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
   try {
     const application = Object.fromEntries(allowedFields.map((field) => [field, value(request.body, field)]));
     await sendToTelegram(application, request.file);
